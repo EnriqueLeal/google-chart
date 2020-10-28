@@ -34,15 +34,27 @@
 		$monto=floatval($row['monto']);
 		return $monto;
 	}
-	function monto2($table,$text,$ganancia){
+	function monto2($table,$mes,$periodo){
 		global $con;
 		$fecha_inicial="$periodo-$mes-1";
-		if ($text = 'Dinero'){
-		} 
 		
-		$fecha_final="$periodo-$mes-$dia_fin";
 		
-		$query=mysqli_query($con,"select SUM(monto) as monto from $table where fecha = '%$ganancia%' ");
+		$fecha_final="$periodo";
+		
+		$query=mysqli_query($con,"select sum(monto) as monto from $table Where fecha = '$mes'" );
+		$row=mysqli_fetch_array($query);
+		$monto2=floatval($row['monto']);
+		return $monto2;
+	}
+
+	function monto3($table,$mes,$periodo){
+		global $con;
+		$fecha_inicial="$periodo-$mes-1";
+		
+		
+		$fecha_final="$periodo";
+		
+		$query=mysqli_query($con,"select sum(monto) as monto from $table" );
 		$row=mysqli_fetch_array($query);
 		$monto2=floatval($row['monto']);
 		return $monto2;
