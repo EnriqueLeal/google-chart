@@ -15,6 +15,7 @@
       google.charts.setOnLoadCallback(drawVisualization);
 
 // var $texto =intval(['cbo_cantidad']);
+    $resultado = $_POST["monto"];
 
     var texto=$("cbo_cantidad").val();
 
@@ -103,7 +104,7 @@
     
 
     var options = {
-      title : 'REPORTE DE INGRESOS VS EGRESOS'+" "+"Periodo"+" "+ texto,
+      title : 'REPORTE DE INGRESOS VS EGRESOS'+" "+"Periodo"+" "+ $resultado,
       hAxis: {title: 'Cantidad'},
       seriesType: 'bars',
       series: {5: {type: 'line'}}
